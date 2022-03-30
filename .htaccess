@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /blog_management/ 
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule    ^about_us$   pages.php?id=3    [NC,L] 
+RewriteRule    ^contact_us$ contact_us.php  [NC,L]
+RewriteRule    ^services$   service_list.php  [NC,L] 
+RewriteRule    ^career$   	career.php  [NC,L] 
+RewriteRule    ^testimonials$   testimonials.php  [NC,L] 
+RewriteRule    ^products$   product_list.php  [NC,L] 
+RewriteRule    ^blog$   blog_list.php  [NC,L] 
+
+RewriteRule    ^product/(.*)$   product.php?id=$1 [QSA,L]
+RewriteRule    ^service/(.*)$   service.php?id=$1 [QSA,L]
+RewriteRule    ^career/(.*)$    career.php?id=$1 [QSA,L]
+RewriteRule    ^blog/(.*)$   	blog.php?id=$1 [QSA,L]
+
+RewriteRule    ^download/(.*)$  download.php?name=$1 [QSA,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
